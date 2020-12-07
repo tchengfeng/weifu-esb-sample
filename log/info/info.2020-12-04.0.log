@@ -1,0 +1,23 @@
+2020-12-04 08:45:56.393 INFO  [main]com.weifu.esb.demo.DemoApplicationTests -Starting DemoApplicationTests using Java 1.8.0_181 on WIN-6DIBP7VVHEA with PID 1920 (started by TOC1SGH in F:\workspace\code\weifu-esb-sample)
+2020-12-04 08:45:56.404 INFO  [main]com.weifu.esb.demo.DemoApplicationTests -No active profile set, falling back to default profiles: default
+2020-12-04 08:46:09.290 INFO  [main]org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor -Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-04 08:46:11.968 INFO  [main]org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler -Initializing ExecutorService 'taskScheduler'
+2020-12-04 08:46:15.165 INFO  [main]com.weifu.esb.demo.DemoApplicationTests -Started DemoApplicationTests in 20.386 seconds (JVM running for 24.123)
+2020-12-04 08:46:16.003 INFO  [scheduling-1]com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited
+2020-12-04 08:46:17.170 INFO  [SpringContextShutdownHook]org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler -Shutting down ExecutorService 'taskScheduler'
+2020-12-04 08:46:17.180 INFO  [SpringContextShutdownHook]org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor -Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-04 08:46:17.182 INFO  [SpringContextShutdownHook]com.alibaba.druid.pool.DruidDataSource -{dataSource-1} closed
+2020-12-04 08:50:45.412 INFO  [main]com.weifu.esb.demo.DemoApplication -Starting DemoApplication using Java 1.8.0_181 on WIN-6DIBP7VVHEA with PID 3468 (F:\workspace\code\weifu-esb-sample\target\classes started by TOC1SGH in F:\workspace\code\weifu-esb-sample)
+2020-12-04 08:50:45.423 INFO  [main]com.weifu.esb.demo.DemoApplication -No active profile set, falling back to default profiles: default
+2020-12-04 08:50:50.195 INFO  [main]org.springframework.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2020-12-04 08:50:50.220 INFO  [main]org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-04 08:50:50.234 INFO  [main]org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2020-12-04 08:50:50.235 INFO  [main]org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-04 08:50:50.412 INFO  [main]org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2020-12-04 08:50:50.413 INFO  [main]org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 4786 ms
+2020-12-04 08:50:51.839 INFO  [main]org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor -Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-04 08:50:52.384 INFO  [main]org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler -Initializing ExecutorService 'taskScheduler'
+2020-12-04 08:50:52.453 INFO  [main]org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2020-12-04 08:50:52.569 INFO  [main]org.springframework.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-04 08:50:52.615 INFO  [main]com.weifu.esb.demo.DemoApplication -Started DemoApplication in 9.042 seconds (JVM running for 12.714)
+2020-12-04 08:50:52.823 INFO  [scheduling-1]com.alibaba.druid.pool.DruidDataSource -{dataSource-1} inited

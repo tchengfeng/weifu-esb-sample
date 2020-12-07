@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weifu.esb.demo.mapper.HInventoryStockMapper">
+
+    <resultMap type="com.weifu.esb.demo.entity.HInventoryStock" id="HInventoryStockResult">
+        <result property="id"    column="id"    />
+        <result property="matnr"    column="matnr"    />
+        <result property="bwkey"    column="bwkey"    />
+        <result property="bklas"    column="bklas"    />
+        <result property="bismt"    column="bismt"    />
+        <result property="labst"    column="labst"    />
+        <result property="speme"    column="speme"    />
+    </resultMap>
+
+    <sql id="selectHInventoryStockVo">
+        select id, matnr, bwkey, bklas, bismt, labst, speme from h_inventorystock
+    </sql>
+
+    <select id="selectHInventoryStockById" parameterType="Integer" resultMap="HInventoryStockResult">
+        <include refid="selectHInventoryStockVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectHInventoryStockList" parameterType="HInventoryStock" resultMap="HInventoryStockResult">
+        select * from h_inventorystock
+    </select>
+
+    <insert id="insertHInventoryStock" parameterType="HInventoryStock" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into h_inventorystock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="matnr != null">matnr,</if>
+            <if test="bwkey != null">bwkey,</if>
+            <if test="bklas != null">bklas,</if>
+            <if test="bismt != null">bismt,</if>
+            <if test="labst != null">labst,</if>
+            <if test="speme != null">speme,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="matnr != null">#{matnr},</if>
+            <if test="bwkey != null">#{bwkey},</if>
+            <if test="bklas != null">#{bklas},</if>
+            <if test="bismt != null">#{bismt},</if>
+            <if test="labst != null">#{labst},</if>
+            <if test="speme != null">#{speme},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHInventoryStock" parameterType="HInventoryStock">
+        update h_inventorystock
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="matnr != null">matnr = #{matnr},</if>
+            <if test="bwkey != null">bwkey = #{bwkey},</if>
+            <if test="bklas != null">bklas = #{bklas},</if>
+            <if test="bismt != null">bismt = #{bismt},</if>
+            <if test="labst != null">labst = #{labst},</if>
+            <if test="speme != null">speme = #{speme},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHInventoryStockById" parameterType="Integer">
+        delete from h_inventorystock where id = #{id}
+    </delete>
+
+    <delete id="deleteHInventoryStockByIds" parameterType="String">
+        delete from h_inventorystock where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="clearHInventoryStock">
+        truncate table h_inventorystock
+    </update>
+
+</mapper>

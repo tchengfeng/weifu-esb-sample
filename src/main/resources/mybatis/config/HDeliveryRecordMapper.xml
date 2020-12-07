@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weifu.esb.demo.mapper.HDeliveryRecordMapper">
+
+    <resultMap type="com.weifu.esb.demo.entity.HDeliveryRecord" id="HDeliveryRecordResult">
+        <result property="id"    column="id"    />
+        <result property="vbeln"    column="vbeln"    />
+        <result property="posnr"    column="posnr"    />
+        <result property="matnr"    column="matnr"    />
+        <result property="lfimg"    column="lfimg"    />
+        <result property="bwart"    column="bwart"    />
+        <result property="name1"    column="name1"    />
+        <result property="erdat"    column="erdat"    />
+        <result property="wadat"    column="wadat"    />
+        <result property="aedat"    column="aedat"    />
+        <result property="wadat_ist"    column="wadat_ist"    />
+        <result property="wbstk"    column="wbstk"    />
+    </resultMap>
+
+    <sql id="selectHDeliveryRecordVo">
+        select id, vbeln, posnr, matnr, lfimg, bwart, name1, erdat, wadat, aedat, wadat_ist, wbstk from h_deliveryrecord
+    </sql>
+
+    <select id="selectHDeliveryRecordById" parameterType="Integer" resultMap="HDeliveryRecordResult">
+        <include refid="selectHDeliveryRecordVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectHDeliveryRecordList" parameterType="HDeliveryRecord" resultMap="HDeliveryRecordResult">
+        select * from h_deliveryrecord
+    </select>
+
+    <insert id="insertHDeliveryRecord" parameterType="HDeliveryRecord" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into h_deliveryrecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="vbeln != null">vbeln,</if>
+            <if test="posnr != null">posnr,</if>
+            <if test="matnr != null">matnr,</if>
+            <if test="lfimg != null">lfimg,</if>
+            <if test="bwart != null">bwart,</if>
+            <if test="name1 != null">name1,</if>
+            <if test="erdat != null">erdat,</if>
+            <if test="wadat != null">wadat,</if>
+            <if test="aedat != null">aedat,</if>
+            <if test="wadat_ist != null">wadat_ist,</if>
+            <if test="wbstk != null">wbstk,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="vbeln != null">#{vbeln},</if>
+            <if test="posnr != null">#{posnr},</if>
+            <if test="matnr != null">#{matnr},</if>
+            <if test="lfimg != null">#{lfimg},</if>
+            <if test="bwart != null">#{bwart},</if>
+            <if test="name1 != null">#{name1},</if>
+            <if test="erdat != null">#{erdat},</if>
+            <if test="wadat != null">#{wadat},</if>
+            <if test="aedat != null">#{aedat},</if>
+            <if test="wadat_ist != null">#{wadat_ist},</if>
+            <if test="wbstk != null">#{wbstk},</if>
+        </trim>
+    </insert>
+
+    <update id="updateHDeliveryRecord" parameterType="HDeliveryRecord">
+        update h_deliveryrecord
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="vbeln != null">vbeln = #{vbeln},</if>
+            <if test="posnr != null">posnr = #{posnr},</if>
+            <if test="matnr != null">matnr = #{matnr},</if>
+            <if test="lfimg != null">lfimg = #{lfimg},</if>
+            <if test="bwart != null">bwart = #{bwart},</if>
+            <if test="name1 != null">name1 = #{name1},</if>
+            <if test="erdat != null">erdat = #{erdat},</if>
+            <if test="wadat != null">wadat = #{wadat},</if>
+            <if test="aedat != null">aedat = #{aedat},</if>
+            <if test="wadat_ist != null">wadat_ist = #{wadat_ist},</if>
+            <if test="wbstk != null">wbstk = #{wbstk},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHDeliveryRecordById" parameterType="Integer">
+        delete from h_deliveryrecord where id = #{id}
+    </delete>
+
+    <delete id="deleteHDeliveryRecordByIds" parameterType="String">
+        delete from h_deliveryrecord where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    <update id="clearHDeliveryRecord">-->
+<!--        truncate table h_deliveryrecord-->
+<!--    </update>-->
+
+    <delete id="clearHDeliveryRecord" parameterType="String">
+        delete from h_deliveryrecord where aedat = #{aedat}
+    </delete>
+
+    <select id="countHDeliveryRecord" resultType="int">
+        select count(*) from h_deliveryrecord;
+    </select>
+
+</mapper>
