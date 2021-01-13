@@ -24,14 +24,16 @@ public class ScheduleTask {
         // 获取当前时间
         Calendar ca = Calendar.getInstance();
 
-        SimpleDateFormat sdfYMDClear = new SimpleDateFormat("YYYY-MM-dd");
-        SimpleDateFormat sdfYMDInsert = new SimpleDateFormat("YYYYMMdd");
+        SimpleDateFormat sdfYMDClear = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdfYMDInsert = new SimpleDateFormat("yyyyMMdd");
         SimpleDateFormat sdfHMS = new SimpleDateFormat("HHmmss");
+
+        SimpleDateFormat sdfUpdateTime = new SimpleDateFormat("yyyy-MM-dd HHmmss");
 
         Date curDate = ca.getTime();
         String hmsStr = sdfHMS.format(curDate);
 
-        // 插入前一天最新数据
+//        // 插入前一天最新数据
         if(hmsStr.compareTo("003000") == -1){
             ca.add(Calendar.DATE, -1);
 
@@ -43,7 +45,6 @@ public class ScheduleTask {
             sapEsbService.insertHDeliveryRecordObj(ymdStrInsert);
 
         } else { // 定时更新当然的数据
-
             String ymdStrClear = sdfYMDClear.format(curDate);
             String ymdStrInsert = sdfYMDInsert.format(curDate);
 
@@ -52,8 +53,9 @@ public class ScheduleTask {
         }
 
         // update HInventoryStock
+        String curTime = sdfUpdateTime.format(curDate);
         sapEsbService.clearHInventoryStock();
-        sapEsbService.insertHInventoryStockObj();
+        sapEsbService.insertHInventoryStockObj(curTime);
 
     }
 }

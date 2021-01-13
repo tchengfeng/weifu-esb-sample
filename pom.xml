@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.weifu.esb</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>wfds-sap</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>wdfs-sap-demo</name>
     <description>Demo project for Spring Boot</description>

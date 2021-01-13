@@ -1,5 +1,7 @@
 package com.weifu.esb.demo.entity;
 
+import java.util.Date;
+
 /**
  * ObjectOne对象
  *
@@ -19,6 +21,7 @@ public class HInventoryStock extends BaseEntity {
     private String bismt;
     private String labst;
     private String speme;
+    private String update_time;
 
     public Integer getId() {
         return id;
@@ -76,9 +79,17 @@ public class HInventoryStock extends BaseEntity {
         this.speme = speme;
     }
 
+    public String getUpdate_time() {
+        return update_time;
+    }
+
+    public void setUpdate_time(String update_time) {
+        this.update_time = update_time;
+    }
+
     @Override
     public String toString() {
-        return "ObjectOne{" +
+        return "HInventoryStock{" +
                 "id=" + id +
                 ", matnr='" + matnr + '\'' +
                 ", bwkey='" + bwkey + '\'' +
@@ -86,6 +97,7 @@ public class HInventoryStock extends BaseEntity {
                 ", bismt='" + bismt + '\'' +
                 ", labst='" + labst + '\'' +
                 ", speme='" + speme + '\'' +
+                ", update_time='" + update_time + '\'' +
                 '}';
     }
 }

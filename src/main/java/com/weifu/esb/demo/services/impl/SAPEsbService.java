@@ -34,10 +34,11 @@ public class SAPEsbService {
      *
      * @throws Exception
      */
-    public void insertHInventoryStockObj() throws Exception {
+    public void insertHInventoryStockObj(String curTime) throws Exception {
         List<HInventoryStock> hInventoryStockList = getHInventoryStockData();
 
         for(HInventoryStock hInventoryStockObj : hInventoryStockList){
+            hInventoryStockObj.setUpdate_time(curTime);
             hInventoryStock.insertHInventoryStock(hInventoryStockObj);
         }
     }
